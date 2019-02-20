@@ -1,11 +1,17 @@
 package com.example.wospringmvc.model;
 
 
+import lombok.*;
+
 import javax.persistence.*;
 import java.lang.annotation.Target;
+import java.util.Objects;
 
-@Entity
+
 @Table(name = "users")
+@Data
+@Entity
+
 public class Users {
 
     @Id
@@ -14,6 +20,8 @@ public class Users {
     private String user_id;
     private String user_name;
     private String user_pw;
+
+
 
     public Long getId() {
         return id;
@@ -46,4 +54,7 @@ public class Users {
     public void setUser_pw(String user_pw) {
         this.user_pw = user_pw;
     }
+
+
+
 }
