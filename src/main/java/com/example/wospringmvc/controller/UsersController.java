@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 @Controller
-public class UsersController {
+ public class UsersController {
 
     @Autowired
     private JoinService joinService;
@@ -42,7 +42,7 @@ public class UsersController {
 
        String page =  loginService.login(userId,userPw);
 
-        return page;
+       return page;
 
     }
 }
