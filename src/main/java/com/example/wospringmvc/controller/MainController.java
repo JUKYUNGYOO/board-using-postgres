@@ -2,24 +2,27 @@ package com.example.wospringmvc.controller;
 
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class MainController {
 
-    @RequestMapping(value = "/")   //매핑
+    @RequestMapping("/")   //매핑
     public String index(){
         return "index";
     }
 
 
-    @RequestMapping(value = "/joinPage")  //joinPage
+    @GetMapping("/joinPage")  //joinPage
     public String joinPage(){
             return "join";
     }
 
-    @RequestMapping(value = "/LoginPage")  //joinPage
-    public String LoginPage(){
+    @GetMapping("/loginPage")  //loginPage
+    public String loginPage(){
         return "login";
     }
+
+
 }
