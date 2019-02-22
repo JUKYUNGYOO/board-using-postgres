@@ -6,6 +6,8 @@ import com.example.wospringmvc.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpSession;
+
 @Service
 public class LoginService {
 
@@ -16,6 +18,9 @@ public class LoginService {
     @Autowired
     private UsersRepository usersRepository;
 
+    @Autowired
+    HttpSession session;
+
     public String login(String userId,String userPw){
         if(userId.equals("") || userPw.equals("") ){
             return "login";
@@ -23,10 +28,12 @@ public class LoginService {
 
        String hashedPassword= userPasswordHashClass.getSHA256(userPw);
 
-       Users users = usersRepository.findByUsers_idAndAndUsers_pw(userId,hashedPassword);
+       Users users = usersRepository.findByUseridAndPassword(userId,hashedPassword);
        if(users==null){
            return "login";
        }
+
+       session.setAttribute("loginUser",users);
 
         return "index";
     }

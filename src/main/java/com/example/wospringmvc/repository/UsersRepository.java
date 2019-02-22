@@ -11,7 +11,7 @@ public interface UsersRepository extends JpaRepository<Users,Long> {
     @Query("SELECT p " +
             "FROM Users p " +
             "ORDER BY p.id DESC")
-    public Users findByUsers_idAndAndUsers_pw(String user_id,String user_pw);
+    public Users findByUseridAndPassword(String userid, String userPw);
 
 
 }

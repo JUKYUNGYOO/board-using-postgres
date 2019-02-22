@@ -24,11 +24,11 @@ import java.util.Map;
     @PostMapping("/joinRequest")
     public String joinRequest(@RequestParam Map<String,String> paramMap){
 
-        String userId = paramMap.get("user_id");
-        String userPw = paramMap.get("user_pw");
-        String userName = paramMap.get("user_name");
+        String userid = paramMap.get("userid");
+        String password = paramMap.get("password");
+        String username = paramMap.get("username");
 
-        String page = joinService.joinUser(userId, userPw, userName);
+        String page = joinService.joinUser(userid, password, username);
 
 
         return page;
@@ -36,11 +36,11 @@ import java.util.Map;
 
     @PostMapping("/loginRequest")
     public String loginRequest(@RequestParam Map<String,String> parseMap){
-        String userId = parseMap.get("user_id");
-        String userPw = parseMap.get("user_pw");
+        String userid = parseMap.get("userid");
+        String password = parseMap.get("password");
 
 
-       String page =  loginService.login(userId,userPw);
+       String page =  loginService.login(userid,password);
 
        return page;
 

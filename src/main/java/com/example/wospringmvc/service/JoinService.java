@@ -23,12 +23,12 @@ public class JoinService {
         }
 
         Users users = new Users();
-        users.setUser_id(userId);
+        users.setUserid(userId);
        String hashedPassword = userPasswordHashClass.getSHA256(userPw);
 
 
-        users.setUser_pw(hashedPassword);
-        users.setUser_name(userName);
+        users.setPassword(hashedPassword);
+        users.setUsername( userName);
 
         usersRepository.save(users);
         return "index";
