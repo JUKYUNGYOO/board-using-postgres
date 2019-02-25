@@ -11,7 +11,7 @@ import javax.persistence.*;
 public class Freeboard {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="freeId")
     private Long freeId;
 

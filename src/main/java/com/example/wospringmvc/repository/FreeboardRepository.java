@@ -11,8 +11,8 @@ import java.util.stream.Stream;
 @Repository
 public interface FreeboardRepository extends JpaRepository<Freeboard, Long> {
 
-    @Query("SELECT p " +
-            "FROM Freeboard p " +
-            "ORDER BY p.id DESC")
-    Stream<Freeboard> findAllDesc();
+//    @Query("SELECT p " +
+//            "FROM Freeboard p " +
+//            "ORDER BY p.id DESC")
+//    Stream<Freeboard> findAllDesc();
 }
