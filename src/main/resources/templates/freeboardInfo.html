@@ -44,14 +44,14 @@
     <script>
         function page(pageNum) {
             location.href="/freeboard?pageNum="+pageNum;
-            
+
         }
         function getPost(freeId) {
             location.href="/freeBoardInfo?freeId="+freeId;
-            
+
         }
-        
-        
+
+
     </script>
 </head>
 <body>
@@ -93,51 +93,15 @@
         </div>
         <div class="col-sm-8 text-left">
             <br/><br/><br/>
-            <h4>Freeboard</h4>
-            <a href="/freeboardWritePage">글쓰기</a>
-            <table>
-                <thead>
-                    <tr>
-                        <th>&nbsp글 번호&nbsp</th>
-                        <th>&nbsp글 제목&nbsp</th>
-                        <th>&nbsp작성자&nbsp </th>
+            <h5 th:text="${session.freeboard.getTitle()}">Freeboard</h5>
 
-                    </tr>
-                    <th:block th:if="${session.boardList!=null}">
-                        <th:block th:each="board:${session.boardList}">
-                            <tr>
-                                <td><span th:text="${board.getFreeId()}"></span></td>
-                                <td><a th:onclick="|javascript:getPost('${board.getFreeId()}')|" th:text="${board.getTitle()}"></a></td>
-                                <td><span th:text="${board.getWriter()}"></span></td>
-
-                            </tr>
-                        </th:block>
-                        <tr>
-                            <td></td>
-                            <td></td>
-
-                        </tr>
-
-                    </th:block>
+            <br><br>
+            <textarea th:text="${session.freeboard.getContent()}" readonly="readonly"></textarea>
 
 
-                </thead>
-
-
-
-            </table>
+            <br><br>
+            <!--<a href="/freeboardWritePage">글쓰기</a>-->
             <!--페이지 번호-->
-
-
-            <a th:if="${session.pageMaker.isPrev()}" style="text-decoration: none;" th:onclick="|javascript:page('${session.pageMaker.getStartPage()}')|">&laquo;</a>
-            <th:block th:each="pageNum:${#numbers.sequence(session.pageMaker.getStartPage(),session.pageMaker.getEndPage())}">
-                &nbsp;<a th:text="${pageNum}" th:onclick="|javascript:page('${pageNum}')|"></a>&nbsp;
-            </th:block>
-            <a th:if="${session.pageMaker.isNext()}" style="text-decoration: none;" th:onclick="|javascript:page('${session.pageMaker.getEndPage()}')|">&raquo;</a>
-
-
-
-
         </div>
         <div class="col-sm-2 sidenav">
             <div class="well">

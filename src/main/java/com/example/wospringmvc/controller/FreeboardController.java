@@ -2,6 +2,7 @@ package com.example.wospringmvc.controller;
 
 
 import com.example.wospringmvc.model.Freeboard;
+import com.example.wospringmvc.service.freeboard.FreeboardInfoService;
 import com.example.wospringmvc.service.freeboard.FreeboardListService;
 import com.example.wospringmvc.service.freeboard.FreeboardWriteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,13 +23,10 @@ public class FreeboardController {
 
 board 보여주는 기능
  */
-    @Autowired
-    private FreeboardListService freeboardListService;
-
-    @Autowired
-    private FreeboardWriteService freeboardWriteService;
-    @Autowired
-    private HttpSession session;
+    @Autowired private FreeboardListService freeboardListService;
+    @Autowired private FreeboardWriteService freeboardWriteService;
+    @Autowired private HttpSession session;
+    @Autowired private FreeboardInfoService freeboardInfoService;
 
     private int returnIntValue(String stringToInt){
         return Integer.parseInt(stringToInt);
@@ -59,22 +57,13 @@ board 보여주는 기능
        // return "freeboard";
     }
 
-//
-//@PostMapping("/freeboardWriteRequest")
-//public String freeboardWriteRequest(@RequestParam(value = "content") String content,
-//                                    @RequestParam(value = "title") String title,
-//                                    @RequestParam(value = "writer") String writer) {
-//    String page = freeboardWriteService.write(content, title, writer);
-//
-//    if (page == null) {
-//        return "freeboard";
-//    }
-//    List<Freeboard> boardList = freeboardListService.list("1");
-//    session.setAttribute("boardList", boardList);
-//
-//    return "freeboard";
-//}
+    @GetMapping("/freeBoardInfo")
+    public String getPost(@RequestParam(value="freeId")String freeId){
 
+    String page = freeboardInfoService.getFreeboardPost(freeId);
+
+     return page;
+    }
 
 
 

@@ -100,7 +100,7 @@ public class PageMaker {
         this.currentBlock = pageNum / 5;
         if (pageNum % 5 > 0) {
             this.currentBlock++;
-            System.out.println(this.currentBlock);
+
         }
     }
     public long getLastblock() {
