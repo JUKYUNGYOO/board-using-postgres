@@ -35,9 +35,9 @@ import java.util.Map;
     }
 
     @PostMapping("/loginRequest")
-    public String loginRequest(@RequestParam Map<String,String> parseMap){
-        String userid = parseMap.get("userid");
-        String password = parseMap.get("password");
+    public String loginRequest(@RequestParam Map<String,String> paramMap){
+        String userid = paramMap.get("userid");
+        String password = paramMap.get("password");
 
 
        String page =  loginService.login(userid,password);
